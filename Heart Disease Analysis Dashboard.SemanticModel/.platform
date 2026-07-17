@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Heart Disease Analysis Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2288984d-d20a-47a1-ad4f-58dbd889b29f"
+  }
+}

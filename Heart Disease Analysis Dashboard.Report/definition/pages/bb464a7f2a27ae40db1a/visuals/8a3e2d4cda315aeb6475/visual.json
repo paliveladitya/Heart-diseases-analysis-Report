@@ -1,0 +1,264 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "8a3e2d4cda315aeb6475",
+  "position": {
+    "x": 880,
+    "y": 464,
+    "z": 12000,
+    "height": 224.00000000000003,
+    "width": 384,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "ribbonChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "heart_Disease_clinical_records_"
+                    }
+                  },
+                  "Property": "AGE-GROUP"
+                }
+              },
+              "queryRef": "heart_Disease_clinical_records_.AGE-GROUP",
+              "nativeQueryRef": "AGE-GROUP",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "heart_Disease_clinical_records_"
+                        }
+                      },
+                      "Property": "smoking"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(heart_Disease_clinical_records_.smoking)",
+              "nativeQueryRef": "Sum of smoking"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "heart_Disease_clinical_records_"
+                        }
+                      },
+                      "Property": "high_blood_pressure"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(heart_Disease_clinical_records_.high_blood_pressure)",
+              "nativeQueryRef": "Sum of high_blood_pressure"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "heart_Disease_clinical_records_"
+                        }
+                      },
+                      "Property": "diabetes"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(heart_Disease_clinical_records_.diabetes)",
+              "nativeQueryRef": "Sum of diabetes"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "heart_Disease_clinical_records_"
+                        }
+                      },
+                      "Property": "anaemia"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(heart_Disease_clinical_records_.anaemia)",
+              "nativeQueryRef": "Sum of anaemia"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "heart_Disease_clinical_records_"
+                      }
+                    },
+                    "Property": "smoking"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FF0015'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(heart_Disease_clinical_records_.smoking)"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(heart_Disease_clinical_records_.high_blood_pressure)"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(heart_Disease_clinical_records_.anaemia)"
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Impact of smoking high blood pressure, Anaemia and Diabetes by age group'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

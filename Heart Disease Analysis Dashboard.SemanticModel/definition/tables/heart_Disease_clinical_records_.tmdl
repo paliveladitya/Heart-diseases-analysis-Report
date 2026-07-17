@@ -1,0 +1,204 @@
+table heart_Disease_clinical_records_
+	lineageTag: 116c3a46-21d2-4eb6-a746-2dd5dca6167f
+
+	measure Survival_Rate =
+			
+			1-DIVIDE(
+			    SUM('heart_Disease_clinical_records_'[DEATH_EVENT]),
+			    COUNT('heart_Disease_clinical_records_'[count])
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4cce624b-16f7-4b69-b112-0b7d1b386000
+
+	measure Average_Age_Survival =
+			
+			CALCULATE(
+			    AVERAGE(heart_Disease_clinical_records_[age]),
+			    'heart_Disease_clinical_records_'[DEATH_EVENT]=0
+			)
+		lineageTag: 7e2196c1-d850-403a-abd3-2dbec50a3dcb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Total_Surviour = ```
+			
+			CALCULATE(
+			    COUNTA(heart_Disease_clinical_records_[count]),
+			    'heart_Disease_clinical_records_'[DEATH_EVENT]=0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: a0c9ea7e-e34f-4c75-b1bf-c10347dca8a8
+
+	measure Total_Death =
+			
+			CALCULATE(
+			    COUNT(heart_Disease_clinical_records_[count]),
+			    'heart_Disease_clinical_records_'[DEATH_EVENT]=1
+			)
+		formatString: 0
+		lineageTag: fae76cf0-be3e-4115-98a0-951cc91120fa
+
+	column count
+		dataType: int64
+		formatString: 0
+		lineageTag: ffdd419f-a329-46bb-97c0-0f24ee0df85a
+		summarizeBy: sum
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c76e4a8-aa13-44cc-a33a-61ba6b27b3ab
+		summarizeBy: sum
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column anaemia
+		dataType: int64
+		formatString: 0
+		lineageTag: 114f1a56-f911-4059-8180-3cd73ec8db32
+		summarizeBy: sum
+		sourceColumn: anaemia
+
+		annotation SummarizationSetBy = Automatic
+
+	column creatinine_phosphokinase
+		dataType: int64
+		formatString: 0
+		lineageTag: db4a5032-c0e4-467a-ade7-aa132b22c655
+		summarizeBy: sum
+		sourceColumn: creatinine_phosphokinase
+
+		annotation SummarizationSetBy = Automatic
+
+	column diabetes
+		dataType: int64
+		formatString: 0
+		lineageTag: dd1550e3-c030-47b3-8015-04998d00accf
+		summarizeBy: sum
+		sourceColumn: diabetes
+
+		annotation SummarizationSetBy = Automatic
+
+	column ejection_fraction
+		dataType: int64
+		formatString: 0
+		lineageTag: 64b77908-1e26-4673-b113-7d5306813d26
+		summarizeBy: sum
+		sourceColumn: ejection_fraction
+
+		annotation SummarizationSetBy = Automatic
+
+	column high_blood_pressure
+		dataType: int64
+		formatString: 0
+		lineageTag: c8f83578-c1cc-4c89-877a-a5e7cfb6135e
+		summarizeBy: sum
+		sourceColumn: high_blood_pressure
+
+		annotation SummarizationSetBy = Automatic
+
+	column platelets
+		dataType: double
+		lineageTag: 04585763-019d-4191-826a-4370b863caff
+		summarizeBy: sum
+		sourceColumn: platelets
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column serum_creatinine
+		dataType: double
+		lineageTag: 2664512c-6f19-4301-b217-3932dc5fc3c3
+		summarizeBy: sum
+		sourceColumn: serum_creatinine
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column serum_sodium
+		dataType: int64
+		formatString: 0
+		lineageTag: 86021127-fce2-40b9-819e-1ffd5306ccc2
+		summarizeBy: sum
+		sourceColumn: serum_sodium
+
+		annotation SummarizationSetBy = Automatic
+
+	column sex
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f361b3a-b242-459a-b455-79a04114d50c
+		summarizeBy: sum
+		sourceColumn: sex
+
+		annotation SummarizationSetBy = Automatic
+
+	column smoking
+		dataType: int64
+		formatString: 0
+		lineageTag: d8252551-8290-4cdd-986a-a40ca28cc093
+		summarizeBy: sum
+		sourceColumn: smoking
+
+		annotation SummarizationSetBy = Automatic
+
+	column time
+		dataType: int64
+		formatString: 0
+		lineageTag: faa946af-75ab-4958-8e15-f9294f9375d0
+		summarizeBy: sum
+		sourceColumn: time
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEATH_EVENT
+		dataType: int64
+		formatString: 0
+		lineageTag: 666f7353-ec26-4338-babe-b553d656233e
+		summarizeBy: sum
+		sourceColumn: DEATH_EVENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGE-GROUP =
+			
+			SWITCH(
+			    TRUE(),
+			    'heart_Disease_clinical_records_'[age] >=40 && 'heart_Disease_clinical_records_'[age] <=50, "40-50",
+			    'heart_Disease_clinical_records_'[age] >=51 && 'heart_Disease_clinical_records_'[age] <=60, "51-60",
+			    'heart_Disease_clinical_records_'[age] >=61 && 'heart_Disease_clinical_records_'[age] <=70, "61-70",
+			    'heart_Disease_clinical_records_'[age] >=70, "71+",
+			    "Below 40"
+			)
+		lineageTag: 14192187-f33b-4d47-bc77-b8a8f6278ac8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender = IF('heart_Disease_clinical_records_'[sex]=0, "Female", "Male")
+		lineageTag: 7bbdf9ce-b0e1-4525-b0a5-4f4f14f77a9a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition heart_Disease_clinical_records_ = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\Aditya\Downloads\Heart_Disease_Dataset.xlsx"), null, true),
+				    heart_Disease_clinical_records__Sheet = Source{[Item="heart_Disease_clinical_records_",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(heart_Disease_clinical_records__Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"count", Int64.Type}, {"age", Int64.Type}, {"anaemia", Int64.Type}, {"creatinine_phosphokinase", Int64.Type}, {"diabetes", Int64.Type}, {"ejection_fraction", Int64.Type}, {"high_blood_pressure", Int64.Type}, {"platelets", type number}, {"serum_creatinine", type number}, {"serum_sodium", Int64.Type}, {"sex", Int64.Type}, {"smoking", Int64.Type}, {"time", Int64.Type}, {"DEATH_EVENT", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
