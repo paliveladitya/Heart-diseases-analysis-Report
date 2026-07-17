@@ -1,3 +1,4 @@
+<img width="1331" height="746" alt="Heart disease analysis report image" src="https://github.com/user-attachments/assets/1e0f72fa-b8b5-45b7-b15a-7ec26b858215" />
 # ❤️ Heart Diseases Analysis Report
 
 > **A healthcare data analytics project focused on analyzing heart disease datasets to identify risk factors, uncover meaningful health insights, and support data-driven clinical decision-making through interactive reporting and visualization.**
