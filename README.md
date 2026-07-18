@@ -1,5 +1,5 @@
 <img width="1331" height="746" alt="Heart disease analysis report image" src="https://github.com/user-attachments/assets/1e0f72fa-b8b5-45b7-b15a-7ec26b858215" />
-# ❤️ Heart Diseases Analysis Report
+# ❤️ Heart Diseases Analysis Dashboard
 
 > **A healthcare data analytics project focused on analyzing heart disease datasets to identify risk factors, uncover meaningful health insights, and support data-driven clinical decision-making through interactive reporting and visualization.**
 
@@ -7,7 +7,7 @@
 
 ## 📌 Project Overview
 
-The **Heart Diseases Analysis Report** is a healthcare analytics project that explores patient data to identify patterns, trends, and potential risk factors associated with heart disease.
+The **Heart Diseases Analysis Dashboard** is a healthcare analytics project that explores patient data to identify patterns, trends, and potential risk factors associated with heart disease.
 
 This project demonstrates the practical application of **Data Analytics**, **Business Intelligence**, and **Exploratory Data Analysis (EDA)** to transform raw healthcare data into meaningful insights that support evidence-based decision-making.
 
